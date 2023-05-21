@@ -86,7 +86,7 @@ include 'components/add_cart.php';
 
 <section class="category">
 
-   <h1 class="title">food category</h1>
+   <h1 class="title">Categoría de bebidas</h1>
 
    <div class="box-container">
 
@@ -100,7 +100,7 @@ include 'components/add_cart.php';
          <h3>Bidón</h3>
       </a>
 
-      <a href="category.php?category=3" class="box">
+      <!-- <a href="category.php?category=3" class="box">
          <img src="images/cat-3.png" alt="">
          <h3>--</h3>
       </a>
@@ -108,7 +108,7 @@ include 'components/add_cart.php';
       <a href="category.php?category=4" class="box">
          <img src="images/cat-4.png" alt="">
          <h3>--</h3>
-      </a>
+      </a> -->
 
    </div>
 
@@ -119,7 +119,7 @@ include 'components/add_cart.php';
 
 <section class="products">
 
-   <h1 class="title">latest dishes</h1>
+   <h1 class="title">Últimos productos</h1>
 
    <div class="box-container">
 
@@ -191,6 +191,10 @@ var swiper = new Swiper(".hero-slider", {
    loop:true,
    grabCursor: true,
    effect: "flip",
+   autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
    pagination: {
       el: ".swiper-pagination",
       clickable:true,
