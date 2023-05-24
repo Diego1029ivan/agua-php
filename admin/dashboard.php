@@ -6,144 +6,209 @@ session_start();
 
 $admin_id = $_SESSION['admin_id'];
 
-if(!isset($admin_id)){
-   header('location:admin_login.php');
+if (!isset($admin_id)) {
+  header('location:admin_login.php');
 }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-   <!-- font awesome cdn link  -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="../css/admin_style.css">
-
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+  <!-- My CSS -->
+  <link rel="stylesheet" href="../css/admin.css" />
+  <link rel="stylesheet" href="../css/nav.css" />
+  <title>Admin Hub</title>
+  <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
 </head>
+
 <body>
+  <!-- SIDEBAR -->
+  <?php include '../components/admin_headerp.php' ?>
+  <!-- SIDEBAR -->
 
-<?php include '../components/admin_header.php' ?>
+  <!-- CONTENT -->
+  <section id="content">
+    <!-- NAVBAR -->
+    <nav>
+      <i class="bx bx-menu"></i>
 
-<!-- admin dashboard section starts  -->
+      <form action="#">
+        <div class="form-input">
+          <input type="search" placeholder="Search..." />
+          <button type="submit" class="search-btn">
+            <i class="bx bx-search"></i>
+          </button>
+        </div>
+      </form>
+      <input type="checkbox" id="switch-mode" hidden />
+      <label for="switch-mode" class="switch-mode"></label>
 
-<section class="dashboard">
+      <ul class="main-links">
+        <?php
+        $select_profile = $conn->prepare("SELECT * FROM `admin` WHERE id = ?");
+        $select_profile->execute([$admin_id]);
+        $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+        ?>
+        <li class="dropdown-li">
+          <a href="#" class="profile">
+            <img src="../images/people.png" />
+          </a>
+          <ul class="dropdown">
+            <a href="update_profile.php">
+              <li> <?= $fetch_profile['name']; ?></li>
+            </a>
+            <a href="admin_login.php" class="option-btn">
+              <li>login
+              </li>
+            </a>
+            <a href="register_admin.php" class="option-btn">
+              <li>register</li>
+            </a>
+            <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">
+              <li>logout</li>
+            </a>
+          </ul>
+        </li>
 
-   <h1 class="heading">dashboard</h1>
+      </ul>
+      </li>
+      </ul>
 
-   <div class="box-container">
 
-   <div class="box">
-      <h3>welcome!</h3>
-      <p><?= $fetch_profile['name']; ?></p>
-      <a href="update_profile.php" class="btn">update profile</a>
-   </div>
+    </nav>
+    <!-- NAVBAR -->
 
-   <div class="box">
-      <?php
-         $total_pendings = 0;
-         $select_pendings = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
-         $select_pendings->execute(['pending']);
-         while($fetch_pendings = $select_pendings->fetch(PDO::FETCH_ASSOC)){
+    <!-- MAIN -->
+    <main>
+      <div class="head-title">
+        <div class="left">
+          <h1>Dashboard</h1>
+          <ul class="breadcrumb">
+            <li>
+              <a href="#">Dashboard</a>
+            </li>
+            <li><i class="bx bx-chevron-right"></i></li>
+            <li>
+              <a class="active" href="#">Home</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <ul class="box-info">
+        <li>
+          <a href="update_profile.php"><i class="bx bxs-pyramid"></i></a>
+          <span class="text">
+            <h3><?= $fetch_profile['name'];  ?></h3>
+            <p>Actualizar Perfil</p>
+          </span>
+        </li>
+        <li>
+          <?php
+          $total_pendings = 0;
+          $select_pendings = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
+          $select_pendings->execute(['pending']);
+          while ($fetch_pendings = $select_pendings->fetch(PDO::FETCH_ASSOC)) {
             $total_pendings += $fetch_pendings['total_price'];
-         }
-      ?>
-      <h3><span>$</span><?= $total_pendings; ?><span>/-</span></h3>
-      <p>total pendings</p>
-      <a href="placed_orders.php" class="btn">see orders</a>
-   </div>
-
-   <div class="box">
-      <?php
-         $total_completes = 0;
-         $select_completes = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
-         $select_completes->execute(['completed']);
-         while($fetch_completes = $select_completes->fetch(PDO::FETCH_ASSOC)){
+          }
+          ?>
+          <a href="placed_orders.php"> <i class="bx bxs-checkbox-checked"></i></a>
+          <span class="text">
+            <h3><?= $total_pendings; ?></h3>
+            <p>Total Plata en pendientes</p>
+          </span>
+        </li>
+        <li>
+          <?php
+          $total_completes = 0;
+          $select_completes = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
+          $select_completes->execute(['completed']);
+          while ($fetch_completes = $select_completes->fetch(PDO::FETCH_ASSOC)) {
             $total_completes += $fetch_completes['total_price'];
-         }
-      ?>
-      <h3><span>$</span><?= $total_completes; ?><span>/-</span></h3>
-      <p>total completes</p>
-      <a href="placed_orders.php" class="btn">see orders</a>
-   </div>
+          }
+          ?>
+          <a href="placed_orders.php"><i class="bx bxs-component"></i></a>
+          <span class="text">
+            <h3><?= $total_completes; ?></h3>
+            <p>Total Plata en completado</p>
+          </span>
+        </li>
+        <li>
+          <?php
+          $select_orders = $conn->prepare("SELECT * FROM `orders`");
+          $select_orders->execute();
+          $numbers_of_orders = $select_orders->rowCount();
+          ?>
+          <a href="placed_orders.php"> <i class="bx bxs-book-reader"></i></a>
+          <span class="text">
+            <h3><?= $numbers_of_orders; ?></h3>
+            <p>Total Ordenes</p>
+          </span>
+        </li>
+        <li>
+          <?php
+          $select_products = $conn->prepare("SELECT * FROM `products`");
+          $select_products->execute();
+          $numbers_of_products = $select_products->rowCount();
+          ?>
+          <a href="products.php"><i class="bx bxs-shopping-bag-alt"></i></a>
+          <span class="text">
+            <h3><?= $numbers_of_products; ?></h3>
+            <p>Total Productos</p>
+          </span>
+        </li>
+        <li>
+          <?php
+          $select_users = $conn->prepare("SELECT * FROM `users`");
+          $select_users->execute();
+          $numbers_of_users = $select_users->rowCount();
+          ?>
+          <a href="users_accounts.php"> <i class="bx bxs-user"></i></a>
+          <span class="text">
+            <h3><?= $numbers_of_users; ?></h3>
+            <p>N° Usuarios</p>
+          </span>
+        </li>
+        <li>
+          <?php
+          $select_admins = $conn->prepare("SELECT * FROM `admin`");
+          $select_admins->execute();
+          $numbers_of_admins = $select_admins->rowCount();
+          ?>
+          <a href="admin_accounts.php"> <i class="bx bxs-user-account"></i></a>
+          <span class="text">
+            <h3><?= $numbers_of_admins; ?></h3>
+            <p>N° Admin</p>
+          </span>
+        </li>
 
-   <div class="box">
-      <?php
-         $select_orders = $conn->prepare("SELECT * FROM `orders`");
-         $select_orders->execute();
-         $numbers_of_orders = $select_orders->rowCount();
-      ?>
-      <h3><?= $numbers_of_orders; ?></h3>
-      <p>total orders</p>
-      <a href="placed_orders.php" class="btn">see orders</a>
-   </div>
+        <li>
+          <?php
+          $select_messages = $conn->prepare("SELECT * FROM `messages`");
+          $select_messages->execute();
+          $numbers_of_messages = $select_messages->rowCount();
+          ?>
+          <a href="messages.php"> <i class="bx bxs-message-dots"></i></a>
+          <span class="text">
+            <h3><?= $numbers_of_messages; ?></h3>
+            <p>N° Mensages</p>
+          </span>
+        </li>
+      </ul>
+    </main>
+    <!-- MAIN -->
+  </section>
+  <!-- CONTENT -->
 
-   <div class="box">
-      <?php
-         $select_products = $conn->prepare("SELECT * FROM `products`");
-         $select_products->execute();
-         $numbers_of_products = $select_products->rowCount();
-      ?>
-      <h3><?= $numbers_of_products; ?></h3>
-      <p>products added</p>
-      <a href="products.php" class="btn">see products</a>
-   </div>
-
-   <div class="box">
-      <?php
-         $select_users = $conn->prepare("SELECT * FROM `users`");
-         $select_users->execute();
-         $numbers_of_users = $select_users->rowCount();
-      ?>
-      <h3><?= $numbers_of_users; ?></h3>
-      <p>users accounts</p>
-      <a href="users_accounts.php" class="btn">see users</a>
-   </div>
-
-   <div class="box">
-      <?php
-         $select_admins = $conn->prepare("SELECT * FROM `admin`");
-         $select_admins->execute();
-         $numbers_of_admins = $select_admins->rowCount();
-      ?>
-      <h3><?= $numbers_of_admins; ?></h3>
-      <p>admins</p>
-      <a href="admin_accounts.php" class="btn">see admins</a>
-   </div>
-
-   <div class="box">
-      <?php
-         $select_messages = $conn->prepare("SELECT * FROM `messages`");
-         $select_messages->execute();
-         $numbers_of_messages = $select_messages->rowCount();
-      ?>
-      <h3><?= $numbers_of_messages; ?></h3>
-      <p>new messages</p>
-      <a href="messages.php" class="btn">see messages</a>
-   </div>
-
-   </div>
-
-</section>
-
-<!-- admin dashboard section ends -->
-
-
-
-
-
-
-
-
-
-<!-- custom js file link  -->
-<script src="../js/admin_script.js"></script>
+  <script src="../js/admin.js"></script>
 
 </body>
+
 </html>
