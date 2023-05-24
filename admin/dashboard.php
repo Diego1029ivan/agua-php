@@ -24,7 +24,7 @@ if (!isset($admin_id)) {
   <!-- My CSS -->
   <link rel="stylesheet" href="../css/admin.css" />
   <link rel="stylesheet" href="../css/nav.css" />
-  <title>Admin Hub</title>
+  <title>La Colpa</title>
   <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
 </head>
 

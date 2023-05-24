@@ -53,3 +53,10 @@
   border: none;
   color: aliceblue;
 }
+.doble {
+  font-weight: 600;
+  background-color: #e92031 !important;
+}
+.buttonCard {
+  margin-bottom: 20px;
+}
