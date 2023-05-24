@@ -1,0 +1,55 @@
+.main-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.main-links li {
+  padding: 1rem 40px 1rem 0;
+}
+
+.dropdown-li {
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dropdown-li:hover .dropdown {
+  display: block;
+  opacity: 1;
+}
+
+.dropdown {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: absolute;
+  left: -52px;
+  text-align: center;
+  top: 100%;
+  color: aliceblue;
+  opacity: 0;
+  display: none;
+}
+
+.dropdown li {
+  list-style: none;
+  cursor: pointer;
+  width: 150px;
+
+  background-color: #0c0c1e;
+  padding: 1rem 40px 1rem 0;
+}
+.dropdown a li {
+  color: aliceblue;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+}
+.dropdown a li:hover {
+  background-color: #3c91e6;
+}
+.option-btn {
+  border: none;
+  color: aliceblue;
+}
