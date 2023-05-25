@@ -48,5 +48,5 @@
 </footer>
 <div class="credit">&copy; copyright @ <?= date('Y'); ?> por <span>UNSM</span> | todos los derechos reservados!</div>
 <div class="loader">
-   <img src="images/loader.gif" alt="">
+   <img src="images/jugo.gif" alt="">
 </div>
