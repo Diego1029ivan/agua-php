@@ -30,7 +30,7 @@ if (isset($_GET['delete'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>messages</title>
+  <title>La Colpa</title>
 
   <!-- font awesome cdn link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -42,32 +42,18 @@ if (isset($_GET['delete'])) {
   <!-- My CSS -->
   <link rel="stylesheet" href="../css/admin.css" />
   <link rel="stylesheet" href="../css/nav.css" />
-  <title>Admin Hub</title>
-  <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
+  <!--icono de la pestaña-->
+  <link rel="shortcut icon" href="../uploaded_img/logo.png" type="image/x-icon">
   <!-- <link rel="stylesheet" href="../css/admin_style.css"> -->
 
 </head>
 
 <body>
 
-  <!-- SIDEBAR -->
-  <?php
-  if (isset($message)) {
-    foreach ($message as $message) {
-      echo '
-      <div class="message">
-         <span>' . $message . '</span>
-         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-      </div>
-      ';
-    }
-  }
-  ?>
-
   <section id="sidebar">
     <a href="dashboard.php" class="brand">
       <i class="bx bxs-smile"></i>
-      <span class="text">Admin Hub</span>
+      <span class="text">La Colpa</span>
     </a>
     <ul class="side-menu top">
       <li>
@@ -179,6 +165,19 @@ if (isset($_GET['delete'])) {
     </nav>
 
     <main>
+      <!-- SIDEBAR -->
+      <?php
+      if (isset($message)) {
+        foreach ($message as $message) {
+          echo '
+      <div style= "background-color: #3c91e6;  padding: 15px 32px;" class="message">
+         <span>' . $message . '</span>
+         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+      </div>
+      ';
+        }
+      }
+      ?>
       <div class="table-data">
         <div class="order">
           <div class="head">
@@ -186,21 +185,24 @@ if (isset($_GET['delete'])) {
             <i class="bx bx-search"></i>
             <i class="bx bx-filter"></i>
           </div>
-          <table>
-            <thead>
-              <tr>
-                <th>user id </th>
-                <th>username </th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $select_account = $conn->prepare("SELECT * FROM `users`");
-              $select_account->execute();
-              if ($select_account->rowCount() > 0) {
+          <?php $select_account = $conn->prepare("SELECT * FROM `users`");
+          $select_account->execute();
+          if ($select_account->rowCount() > 0) {
+          ?>
+            <table>
+              <thead>
+                <tr>
+                  <th>user id </th>
+                  <th>username </th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+
+
                 while ($fetch_accounts = $select_account->fetch(PDO::FETCH_ASSOC)) {
-              ?>
+                ?>
                   <tr>
                     <td>
                       <?= $fetch_accounts['id']; ?>
@@ -210,14 +212,15 @@ if (isset($_GET['delete'])) {
                       <a href="users_accounts.php?delete=<?= $fetch_accounts['id']; ?>" class="delete" onclick="return confirm('delete this account?');"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>
-              <?php
+                <?php
                 }
-              } else {
-                echo '<p class="empty">no accounts available</p>';
-              }
-              ?>
-            </tbody>
-          </table>
+
+                ?>
+              </tbody>
+            </table>
+          <?php } else {
+            echo '<p style= "background-color: #3c91e6;  padding: 15px 32px;">No hay usuarios</p>';
+          } ?>
         </div>
 
       </div>

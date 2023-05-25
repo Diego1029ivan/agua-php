@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2023 a las 04:50:08
+-- Tiempo de generación: 25-05-2023 a las 14:30:24
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -95,7 +95,8 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`id`, `user_id`, `name`, `email`, `number`, `message`) VALUES
-(1, 1, 'esau', 'esauveintemilla@gmail.com', '984968198', 'eessss');
+(2, 2, 'andres', 'andres@gmail.com', '987456123', 'No llego mi pedido '),
+(3, 4, 'jean', 'mapisho@gmail.com', '123456789', 'esta malogrado la tapa');
 
 -- --------------------------------------------------------
 
@@ -122,7 +123,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `name`, `number`, `email`, `method`, `address`, `total_products`, `total_price`, `placed_on`, `payment_status`) VALUES
-(1, 1, 'esau', '984968198', 'esauveintemilla@gmail.com', 'paytm', 'esau, sss, sss, sss, ssss, sss, Perú - 51', 'producto (20 x 1) - aaa (20 x 1) - ', 40, '2023-05-22', 'completed');
+(3, 2, 'andres', '984912345', 'andres@gmail.com', 'paypal', '10, 1, casa, tarapoto, tarapoto, estado, Per&uacute; - 54', 'agua (20 x 2) - agua grupo (34 x 4) - ', 176, '2023-05-25', 'pending'),
+(4, 3, 'kenner', '123456789', 'kener@gmail.com', 'cash on delivery', '1, 10, morales, sss, tarapoto, estado, Per&uacute; - 2554', 'agua (20 x 10) - agua grande (60 x 10) - ', 800, '2023-05-25', 'pending'),
+(5, 4, 'jean', '999555444', 'mapisho@gmail.com', 'cash on delivery', '1, 10, casa, tarapoto, moral, estado, Per&uacute; - 10255', 'agua (20 x 1) - 2bidones (100 x 6) - ', 620, '2023-05-25', 'completed');
 
 -- --------------------------------------------------------
 
@@ -143,7 +146,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `categoria_id`, `price`, `image`) VALUES
-(4, 'agua', 1, 20, 'botella.jpg');
+(4, 'agua', 1, 20, 'botella.jpg'),
+(5, 'agua grande', 2, 60, '5L.png'),
+(6, 'agua grupo', 1, 34, 'paquete.png'),
+(7, '2bidones', 2, 100, '2bidones.png');
 
 -- --------------------------------------------------------
 
@@ -165,7 +171,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `number`, `password`, `address`) VALUES
-(1, 'esau', 'esauveintemilla@gmail.com', '984968198', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2', 'esau, sss, sss, sss, ssss, sss, Perú - 51');
+(2, 'andres', 'andres@gmail.com', '984912345', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2', '10, 1, casa, tarapoto, tarapoto, estado, Perú - 54'),
+(3, 'kenner', 'kener@gmail.com', '123456789', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2', '1, 10, morales, sss, tarapoto, estado, Perú - 2554'),
+(4, 'jean', 'mapisho@gmail.com', '999555444', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2', '1, 10, casa, tarapoto, moral, estado, Perú - 10255');
 
 --
 -- Índices para tablas volcadas
@@ -231,7 +239,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT de la tabla `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -243,25 +251,25 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
