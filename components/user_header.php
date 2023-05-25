@@ -15,8 +15,8 @@ if(isset($message)){
 
    <section class="flex">
 
-      <a href="home.php" class="logo">La Colpa <img 
-      src="uploaded_img/logo-botella.png" 
+      <a href="home.php" class="logo"><img 
+      src="uploaded_img/logo.png" 
       class="logo-botella" alt=""></a>
 
       <nav class="navbar">
@@ -48,17 +48,17 @@ if(isset($message)){
          ?>
          <p class="name"><?= $fetch_profile['name']; ?></p>
          <div class="flex">
-            <a href="profile.php" class="btn">profile</a>
-            <a href="components/user_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
+            <a href="profile.php" class="btn">Perfil</a>
+            <a href="components/user_logout.php" onclick="return confirm('Desea salir de su cuenta?');" class="delete-btn">Salir</a>
          </div>
          <p class="account">
-            <a href="login.php">login</a> or
-            <a href="register.php">register</a>
+            <a href="login.php">Ingresar</a> or
+            <a href="register.php">Registrarse</a>
          </p> 
          <?php
             }else{
          ?>
-            <p class="name">please login first!</p>
+            <p class="name">porfavor, ingrese con su cuenta!</p>
             <a href="login.php" class="btn">login</a>
          <?php
           }
