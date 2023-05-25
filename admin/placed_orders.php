@@ -48,7 +48,8 @@ if (isset($_GET['delete'])) {
   <!-- My CSS -->
   <link rel="stylesheet" href="../css/admin.css" />
   <link rel="stylesheet" href="../css/nav.css" />
-  <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
+  <!--icono de la pestaña-->
+  <link rel="shortcut icon" href="../uploaded_img/logo.png" type="image/x-icon">
   <!-- <link rel="stylesheet" href="../css/admin_style.css"> -->
 
 </head>

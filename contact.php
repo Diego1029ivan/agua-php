@@ -4,93 +4,92 @@ include 'components/connect.php';
 
 session_start();
 
-if(isset($_SESSION['user_id'])){
-   $user_id = $_SESSION['user_id'];
-}else{
-   $user_id = '';
+if (isset($_SESSION['user_id'])) {
+  $user_id = $_SESSION['user_id'];
+} else {
+  $user_id = '';
 };
 
-if(isset($_POST['send'])){
+if (isset($_POST['send'])) {
 
-   $name = $_POST['name'];
-   $name = filter_var($name, FILTER_SANITIZE_STRING);
-   $email = $_POST['email'];
-   $email = filter_var($email, FILTER_SANITIZE_STRING);
-   $number = $_POST['number'];
-   $number = filter_var($number, FILTER_SANITIZE_STRING);
-   $msg = $_POST['msg'];
-   $msg = filter_var($msg, FILTER_SANITIZE_STRING);
+  $name = $_POST['name'];
+  $name = filter_var($name, FILTER_SANITIZE_STRING);
+  $email = $_POST['email'];
+  $email = filter_var($email, FILTER_SANITIZE_STRING);
+  $number = $_POST['number'];
+  $number = filter_var($number, FILTER_SANITIZE_STRING);
+  $msg = $_POST['msg'];
+  $msg = filter_var($msg, FILTER_SANITIZE_STRING);
 
-   $select_message = $conn->prepare("SELECT * FROM `messages` WHERE name = ? AND email = ? AND number = ? AND message = ?");
-   $select_message->execute([$name, $email, $number, $msg]);
+  $select_message = $conn->prepare("SELECT * FROM `messages` WHERE name = ? AND email = ? AND number = ? AND message = ?");
+  $select_message->execute([$name, $email, $number, $msg]);
 
-   if($select_message->rowCount() > 0){
-      $message[] = 'already sent message!';
-   }else{
+  if ($select_message->rowCount() > 0) {
+    $message[] = 'already sent message!';
+  } else {
 
-      $insert_message = $conn->prepare("INSERT INTO `messages`(user_id, name, email, number, message) VALUES(?,?,?,?,?)");
-      $insert_message->execute([$user_id, $name, $email, $number, $msg]);
+    $insert_message = $conn->prepare("INSERT INTO `messages`(user_id, name, email, number, message) VALUES(?,?,?,?,?)");
+    $insert_message->execute([$user_id, $name, $email, $number, $msg]);
 
-      $message[] = 'sent message successfully!';
-
-   }
-
+    $message[] = 'sent message successfully!';
+  }
 }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Contáctanos</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Colpa</title>
 
-   <!-- font awesome cdn link  -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <!--icono de la pestaña-->
+  <link rel="shortcut icon" href="uploaded_img/logo.png" type="image/x-icon">
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
-   
-<!-- header section starts  -->
-<?php include 'components/user_header.php'; ?>
-<!-- header section ends -->
 
-<div class="heading">
-   <h3>Contáctanos</h3>
-   <p><a href="home.php">Principal</a> <span> / Contacto</span></p>
-</div>
+  <!-- header section starts  -->
+  <?php include 'components/user_header.php'; ?>
+  <!-- header section ends -->
 
-<!-- contact section starts  -->
+  <div class="heading">
+    <h3>Contáctanos</h3>
+    <p><a href="home.php">Principal</a> <span> / Contacto</span></p>
+  </div>
 
-<section class="contact">
+  <!-- contact section starts  -->
 
-   <div class="row">
+  <section class="contact">
+
+    <div class="row">
 
       <div class="image">
-         <img src="images/contact-img.svg" alt="">
+        <img src="images/contact-img.svg" alt="">
       </div>
 
       <form action="" method="post">
-         <h3>Preguntame algo!</h3>
-         <input type="text" name="name" maxlength="50" class="box" placeholder="ingrese su nombre" required>
-         <input type="number" name="number" min="0" max="9999999999" class="box" placeholder="ingrese su numero" required maxlength="10">
-         <input type="email" name="email" maxlength="50" class="box" placeholder="ingrese su email" required>
-         <textarea name="msg" class="box" required placeholder="ingrese su mensaje" maxlength="500" cols="30" rows="10"></textarea>
-         <input type="submit" value="enviar mensaje" name="send" class="btn">
+        <h3>Preguntame algo!</h3>
+        <input type="text" name="name" maxlength="50" class="box" placeholder="ingrese su nombre" required>
+        <input type="number" name="number" min="0" max="9999999999" class="box" placeholder="ingrese su numero" required maxlength="10">
+        <input type="email" name="email" maxlength="50" class="box" placeholder="ingrese su email" required>
+        <textarea name="msg" class="box" required placeholder="ingrese su mensaje" maxlength="500" cols="30" rows="10"></textarea>
+        <input type="submit" value="enviar mensaje" name="send" class="btn">
       </form>
 
-   </div>
+    </div>
 
-</section>
+  </section>
 
-<!-- contact section ends -->
-
-
+  <!-- contact section ends -->
 
 
 
@@ -99,9 +98,11 @@ if(isset($_POST['send'])){
 
 
 
-<!-- footer section starts  -->
-<?php include 'components/footer.php'; ?>
-<!-- footer section ends -->
+
+
+  <!-- footer section starts  -->
+  <?php include 'components/footer.php'; ?>
+  <!-- footer section ends -->
 
 
 
@@ -110,8 +111,9 @@ if(isset($_POST['send'])){
 
 
 
-<!-- custom js file link  -->
-<script src="js/script.js"></script>
+  <!-- custom js file link  -->
+  <script src="js/script.js"></script>
 
 </body>
+
 </html>
