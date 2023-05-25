@@ -45,34 +45,34 @@ include 'components/add_cart.php';
 
          <div class="swiper-slide slide">
             <div class="content">
-               <span>order online</span>
-               <h3>delicious pizza</h3>
-               <a href="menu.html" class="btn">see menus</a>
+               <span>Pide ahora</span>
+               <h3>"Agua envasada, pureza en cada botella para cuidar de ti y tu familia."</h3>
+               <a href="menu.html" class="btn">ver productos</a>
             </div>
             <div class="image">
-               <img src="images/home-img-1.png" alt="">
+               <img src="images/slider.png" alt="">
             </div>
          </div>
 
          <div class="swiper-slide slide">
             <div class="content">
-               <span>order online</span>
-               <h3>chezzy hamburger</h3>
-               <a href="menu.html" class="btn">see menus</a>
+               <span>Pide ahora</span>
+               <h3>"Agua pura, calidad asegurada para tu bienestar"</h3>
+               <a href="menu.html" class="btn">ver productos</a>
             </div>
             <div class="image">
-               <img src="images/home-img-2.png" alt="">
+               <img src="images/slider2.png" alt="">
             </div>
          </div>
 
          <div class="swiper-slide slide">
             <div class="content">
-               <span>order online</span>
-               <h3>rosted chicken</h3>
-               <a href="menu.html" class="btn">see menus</a>
+               <span>Pide ahora</span>
+               <h3>"Elige salud, elige nuestras aguas envasadas sin aditivos ni conservantes."</h3>
+               <a href="menu.html" class="btn">ver productos</a>
             </div>
             <div class="image">
-               <img src="images/home-img-3.png" alt="">
+               <img src="images/slider3.png" alt="">
             </div>
          </div>
 
@@ -91,12 +91,12 @@ include 'components/add_cart.php';
    <div class="box-container">
 
       <a href="category.php?category=1" class="box">
-         <img src="images/cat-1.png" alt="">
+         <img src="images/botella.png" alt="">
          <h3>Personal</h3>
       </a>
 
       <a href="category.php?category=2" class="box">
-         <img src="images/cat-2.png" alt="">
+         <img src="images/bidon.png" alt="">
          <h3>Bidón</h3>
       </a>
 
@@ -148,14 +148,14 @@ include 'components/add_cart.php';
       <?php
             }
          }else{
-            echo '<p class="empty">no products added yet!</p>';
+            echo '<p class="empty">No hay productos agregados todavía!</p>';
          }
       ?>
 
    </div>
 
    <div class="more-btn">
-      <a href="menu.html" class="btn">veiw all</a>
+      <a href="menu.html" class="btn">Ver todos los productos</a>
    </div>
 
 </section>

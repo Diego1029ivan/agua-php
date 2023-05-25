@@ -36,20 +36,21 @@ include 'components/add_cart.php';
 <!-- header section ends -->
 
 <div class="heading">
-   <h3>our menu</h3>
-   <p><a href="home.php">home</a> <span> / menu</span></p>
+   <h3>nuestros productos</h3>
+   <p><a href="home.php">Principal</a> <span> / variedades</span></p>
 </div>
 
 <!-- menu section starts  -->
 
 <section class="products">
 
-   <h1 class="title">latest dishes</h1>
+   <h1 class="title">Últimos productos</h1>
 
    <div class="box-container">
 
       <?php
-         $select_products = $conn->prepare("SELECT * FROM `products`");
+         $select_products = $conn->prepare("SELECT * FROM `products`,`categoria`
+                                             WHERE `products`.`categoria_id`=`categoria`.`idcategoria`");
          $select_products->execute();
          if($select_products->rowCount() > 0){
             while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){
@@ -62,7 +63,7 @@ include 'components/add_cart.php';
          <a href="quick_view.php?pid=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
          <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
          <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
-         <a href="category.php?category=<?= $fetch_products['category']; ?>" class="cat"><?= $fetch_products['category']; ?></a>
+         <a href="category.php?category=<?= $fetch_products['descripcion']; ?>" class="cat"><?= $fetch_products['descripcion']; ?></a>
          <div class="name"><?= $fetch_products['name']; ?></div>
          <div class="flex">
             <div class="price"><span>$</span><?= $fetch_products['price']; ?></div>
