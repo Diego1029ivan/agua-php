@@ -158,7 +158,7 @@ include 'components/add_cart.php';
     </div>
 
     <div class="more-btn">
-      <a href="#" class="btn">Ver todos los productos</a>
+      <a href="menu.html" class="btn">Ver todos los productos</a>
     </div>
 
   </section>
