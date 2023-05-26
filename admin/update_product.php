@@ -71,9 +71,7 @@ if (isset($_POST['update'])) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <!--icono de la pestaña-->
   <link rel="shortcut icon" href="../uploaded_img/logo.png" type="image/x-icon">
-  <!-- custom css file link  -->
-  <!-- <link rel="stylesheet" href="../css/admin_style.css"> -->
-  <!-- My CSS -->
+
   <!-- Boxicons -->
   <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="../css/admin.css" />
@@ -212,7 +210,7 @@ if (isset($_POST['update'])) {
         if ($show_products->rowCount() > 0) {
           while ($fetch_products = $show_products->fetch(PDO::FETCH_ASSOC)) {
         ?>
-            <form action="" method="POST" enctype="multipart/form-data" class="">
+            <form action="" method="POST" enctype="multipart/form-data">
 
               <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
 

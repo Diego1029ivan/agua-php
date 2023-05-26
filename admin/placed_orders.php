@@ -210,36 +210,14 @@ if (isset($_GET['delete'])) {
               <p><span style="font-weight: 600;"> Forma de pago : </span><?= $fetch_orders['method']; ?> </p>
               <form action="" method="POST">
                 <input type="hidden" name="order_id" value="<?= $fetch_orders['id']; ?>">
-                <select style="background-color: #3c91e6 !important; 
-                  border: none;
-                  color: white;
-                  padding: 15px 32px;
-                  text-align: center;
-                  text-decoration: none;
-                  display: inline-block;
-                  margin-bottom: 16px;
-                  font-size: 16px;" name="payment_status" class="drop-down">
+                <select class="butonpersonaliazul" name="payment_status" class="drop-down">
                   <option style="font-size: 16px;  padding: 15px 32px; display: inline-block;" value="" selected disabled><?= $fetch_orders['payment_status']; ?></option>
                   <option style="font-size: 16px;  padding: 15px 32px; display: inline-block;" value="pending">pending</option>
                   <option style="font-size: 16px;  padding: 15px 32px; display: inline-block;" value="completed">completed</option>
                 </select>
                 <div class="flex-btn">
-                  <input type="submit" value="update" id="buttonCard" style="background-color: #4caf50 !important; 
-                  border: none;
-                  color: white;
-                  padding: 15px 32px;
-                  text-align: center;
-                  text-decoration: none;
-                  display: inline-block;
-                  font-size: 16px;" name="update_payment">
-                  <a href="placed_orders.php?delete=<?= $fetch_orders['id']; ?>" style="background-color: #e92031 !important; 
-                  border: none;
-                  color: white;
-                  padding: 12px 32px;
-                  text-align: center;
-                  text-decoration: none;
-                  display: inline-block;
-                  font-size: 16px; " onclick="return confirm('delete this order?');">delete</a>
+                  <input type="submit" value="update" id="buttonCard" class="butonpersonaliverde" name=" update_payment">
+                  <a href="placed_orders.php?delete=<?= $fetch_orders['id']; ?>" class="butonpersonalirojo" onclick="return confirm('delete this order?');">delete</a>
                 </div>
               </form>
               </span>
