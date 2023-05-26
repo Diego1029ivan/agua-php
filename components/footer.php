@@ -3,7 +3,7 @@
   <div class="container">
     <div class="sec aboutus">
       <h2>Nosotros</h2>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis hic est deleniti quos suscipit dolorem labore nihil saepe reiciendis laborum officia illum, maiores voluptatem sapiente cupiditate? Quas ullam molestiae mollitia?</p>
+      <p>Somos una empresa dedicada a la producción, tratamiento y distribución de agua potable; para suplir la necesidad de agua de nuestros usuarios. </p>
 
       <ul class="sci">
         <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>

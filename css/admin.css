@@ -584,3 +584,70 @@ body {
     min-width: 420px;
   }
 }
+.table-data1 {
+  padding: 24px;
+  background: var(--light);
+  border-radius: 20px;
+}
+.overflow {
+  overflow-x: auto;
+}
+.add-products {
+  padding: 24px;
+  background: var(--light);
+  border-radius: 20px;
+  margin-top: 24px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 24px;
+}
+.add-products form {
+  width: 100%;
+  /* margin: 0 auto; */
+}
+.img-pro img {
+  width: 30%;
+}
+.img-updatepro {
+  margin: 0 auto;
+  width: 30%;
+}
+.img-updatepro img {
+  width: 100%;
+  object-fit: cover;
+}
+.butonpersonalirojo {
+  background-color: #e92031;
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.butonpersonaliverde {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.butonpersonaliazul {
+  background-color: #3c91e6 !important;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+.action {
+  display: flex;
+  gap: 24px;
+}
