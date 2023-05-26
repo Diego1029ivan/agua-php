@@ -230,6 +230,14 @@ section{
    display: none;
    animation: fadeIn .2s linear;
 }
+.profile img{
+   width: 50px;
+   border-radius: 50%;
+}
+.profile .vista-previa {
+   border-radius: 50%;
+    width: 60px;
+}
 
 .header .flex .profile.active{
    display: inline-block;
@@ -831,12 +839,17 @@ section{
    margin:0 auto;
    border:var(--border);
    padding:2rem;
+   
 }
-
+.user-details .foto{
+   display: flex;
+    justify-content: center;
+}
 .user-details .user img{
-   width: 100%;
+   
    height: 20rem;
-   object-fit: contain;
+   border-radius: 50%;
+   
    margin-bottom: 1rem;
 }
 

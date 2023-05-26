@@ -13,13 +13,13 @@ if(isset($_SESSION['user_id'])){
 
 if(isset($_POST['submit'])){
 
-   $address = $_POST['flat'] .', '.$_POST['building'].', '.$_POST['area'].', '.$_POST['town'] .', '. $_POST['city'] .', '. $_POST['state'] .', '. $_POST['country'] .' - '. $_POST['pin_code'];
-   $address = filter_var($address, FILTER_SANITIZE_STRING);
+   $address = $_POST['calle'] .' '.$_POST['numero'].', '.$_POST['distrito'].', '.$_POST['provincia'] .', '. $_POST['departamento'];
+   $address = filter_var($address, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
    $update_address = $conn->prepare("UPDATE `users` set address = ? WHERE id = ?");
    $update_address->execute([$address, $user_id]);
 
-   $message[] = 'address saved!';
+   $message[] = 'dirección guardada!';
 
 }
 
@@ -31,7 +31,7 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>update address</title>
+   <title>actualizar dirección</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -47,16 +47,14 @@ if(isset($_POST['submit'])){
 <section class="form-container">
 
    <form action="" method="post">
-      <h3>your address</h3>
-      <input type="text" class="box" placeholder="flat no." required maxlength="50" name="flat">
-      <input type="text" class="box" placeholder="building no." required maxlength="50" name="building">
-      <input type="text" class="box" placeholder="area name" required maxlength="50" name="area">
-      <input type="text" class="box" placeholder="town name" required maxlength="50" name="town">
-      <input type="text" class="box" placeholder="city name" required maxlength="50" name="city">
-      <input type="text" class="box" placeholder="state name" required maxlength="50" name="state">
-      <input type="text" class="box" placeholder="country name" required maxlength="50" name="country">
-      <input type="number" class="box" placeholder="pin code" required max="999999" min="0" maxlength="6" name="pin_code">
-      <input type="submit" value="save address" name="submit" class="btn">
+      <h3>tu dirección</h3>
+      <input type="text" class="box" placeholder="JR. Calle o Urbanización" required maxlength="50" name="calle">
+      <input type="text" class="box" placeholder="Número" required maxlength="50" name="numero">
+      <input type="text" class="box" placeholder="Distrito" required maxlength="50" name="distrito">
+      <input type="text" class="box" placeholder="Provincia" required maxlength="50" name="provincia">
+      <input type="text" class="box" placeholder="Departamento" required maxlength="50" name="departamento">
+      
+      <input type="submit" value="guardar dirección" name="submit" class="btn">
    </form>
 
 </section>
