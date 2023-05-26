@@ -55,8 +55,8 @@ if (isset($_SESSION['user_id'])) {
 
       <div class="content">
         <h3>Por qué escogernos?</h3>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, neque debitis incidunt qui ipsum sed doloremque a molestiae in veritatis ullam similique sunt aliquam dolores dolore? Quasi atque debitis nobis!</p>
-        <a href="menu.html" class="btn">nuestros productos</a>
+        <p>La Colpa es una empresa dedicada a la producción, tratamiento y distribución de agua potable; para suplir la necesidad de agua de nuestros usuarios. Estamos ubicado en el Jr. Independencia 643 en el Distrito de Cacatachi, provincia de San Martin, Departamento  de San Martin.</p>
+        <a href="menu.php" class="btn">nuestros productos</a>
       </div>
 
     </div>
@@ -101,89 +101,39 @@ if (isset($_SESSION['user_id'])) {
 
   <section class="reviews">
 
-    <h1 class="title">Comentarios de los compradores</h1>
+    <h1 class="title">sliders de fotos</h1>
 
     <div class="swiper reviews-slider">
 
       <div class="swiper-wrapper">
 
         <div class="swiper-slide slide">
-          <img src="images/pic-1.png" alt="">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias ut earum nulla sint voluptatum labore nemo.</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-          </div>
-          <h3>john deo</h3>
+          <img src="images/empresa1.png" alt="">
+          
         </div>
 
         <div class="swiper-slide slide">
-          <img src="images/pic-2.png" alt="">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias ut earum nulla sint voluptatum labore nemo.</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-          </div>
-          <h3>john deo</h3>
+          <img src="images/empresa2.jpg" alt="">
+          
         </div>
 
         <div class="swiper-slide slide">
-          <img src="images/pic-3.png" alt="">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias ut earum nulla sint voluptatum labore nemo.</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-          </div>
-          <h3>john deo</h3>
+          <img src="images/empresa3.jpeg" alt="">
+          
+          
         </div>
 
         <div class="swiper-slide slide">
-          <img src="images/pic-4.png" alt="">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias ut earum nulla sint voluptatum labore nemo.</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-          </div>
-          <h3>john deo</h3>
+          <img src="images/empresa4.jpg" alt="">
+          
         </div>
 
         <div class="swiper-slide slide">
-          <img src="images/pic-5.png" alt="">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias ut earum nulla sint voluptatum labore nemo.</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-          </div>
-          <h3>john deo</h3>
+          <img src="images/empresa5.jpg" alt="">
+          
         </div>
 
-        <div class="swiper-slide slide">
-          <img src="images/pic-6.png" alt="">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptate eligendi laborum molestias ut earum nulla sint voluptatum labore nemo.</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-          </div>
-          <h3>john deo</h3>
-        </div>
+        
 
       </div>
 
@@ -195,7 +145,42 @@ if (isset($_SESSION['user_id'])) {
 
   <!-- reviews section ends -->
 
+  <section class="about">
 
+    <div class="row">
+
+      <div class="image">
+        <img src="images/mision.png" alt="">
+      </div>
+
+      <div class="content">
+        <h3>Misión</h3>
+        <p>Proporcionar con calidad y eficiencia los servicios de agua potable y saneamiento, para contribuir al bienestar, la calidad de vida y el cuidado del entorno ecológico de cada uno de nuestros usuarios apegándonos al Marco Legal.</p>
+        
+      </div>
+
+    </div>
+
+</section>
+
+<section class="about">
+
+    <div class="row">
+
+    <div class="content">
+        <h3>Visión</h3>
+        <p>Garantizar el suministro de agua potable y el saneamiento a las próximas generaciones, satisfacer las necesidades de nuestros clientes, tener una buena vista y ser reconocidos.</p>
+        
+      </div>
+      <div class="image">
+        <img src="images/vision.png" alt="">
+      </div>
+
+      
+
+    </div>
+
+</section>
 
 
 
@@ -235,6 +220,10 @@ if (isset($_SESSION['user_id'])) {
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
+      },
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: true,
       },
       breakpoints: {
         0: {
