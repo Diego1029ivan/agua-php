@@ -2,7 +2,7 @@
 
   <div class="container">
     <div class="sec aboutus">
-      <h2>About us</h2>
+      <h2>Nosotros</h2>
       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis hic est deleniti quos suscipit dolorem labore nihil saepe reiciendis laborum officia illum, maiores voluptatem sapiente cupiditate? Quas ullam molestiae mollitia?</p>
 
       <ul class="sci">
@@ -13,7 +13,7 @@
       </ul>
     </div>
     <div class="sec quickLinks">
-      <h2>Quick Links</h2>
+      <h2>Links Rápidos</h2>
       <ul>
         <li><a href="home.php">Principal</a></li>
         <li><a href="about.php">Nosotros</a></li>
