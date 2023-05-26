@@ -63,7 +63,7 @@ if (isset($_GET['delete'])) {
         </a>
       </li>
       <li>
-        <a href="placed_orders.php?pid=pending&completed">
+        <a href="placed_orders.php?pid=pending&pid2=completed">
           <i class="bx bxs-book-reader"></i>
           <span class="text">Ordenes</span>
         </a>
