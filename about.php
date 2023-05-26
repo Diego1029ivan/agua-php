@@ -55,7 +55,7 @@ if (isset($_SESSION['user_id'])) {
 
       <div class="content">
         <h3>Por qué escogernos?</h3>
-        <p>La Colpa es una empresa dedicada a la producción, tratamiento y distribución de agua potable; para suplir la necesidad de agua de nuestros usuarios. Estamos ubicado en el Jr. Independencia 643 en el Distrito de Cacatachi, provincia de San Martin, Departamento  de San Martin.</p>
+        <p>La Colpa es una empresa dedicada a la producción, tratamiento y distribución de agua potable; para suplir la necesidad de agua de nuestros usuarios. Estamos ubicado en el Jr. Independencia 643 en el Distrito de Cacatachi, provincia de San Martin, Departamento de San Martin.</p>
         <a href="menu.php" class="btn">nuestros productos</a>
       </div>
 
@@ -76,7 +76,7 @@ if (isset($_SESSION['user_id'])) {
       <div class="box">
         <img src="images/iconcall.png" alt="">
         <h3>Llamar</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, dolorem.</p>
+        <p>Si deseas contactar nuestro departamento de ventas, llama 990431916 - 949804737</p>
       </div>
 
       <div class="box">
@@ -109,31 +109,31 @@ if (isset($_SESSION['user_id'])) {
 
         <div class="swiper-slide slide">
           <img src="images/empresa1.png" alt="">
-          
+
         </div>
 
         <div class="swiper-slide slide">
           <img src="images/empresa2.jpg" alt="">
-          
+
         </div>
 
         <div class="swiper-slide slide">
           <img src="images/empresa3.jpeg" alt="">
-          
-          
+
+
         </div>
 
         <div class="swiper-slide slide">
           <img src="images/empresa4.jpg" alt="">
-          
+
         </div>
 
         <div class="swiper-slide slide">
           <img src="images/empresa5.jpg" alt="">
-          
+
         </div>
 
-        
+
 
       </div>
 
@@ -156,31 +156,31 @@ if (isset($_SESSION['user_id'])) {
       <div class="content">
         <h3>Misión</h3>
         <p>Proporcionar con calidad y eficiencia los servicios de agua potable y saneamiento, para contribuir al bienestar, la calidad de vida y el cuidado del entorno ecológico de cada uno de nuestros usuarios apegándonos al Marco Legal.</p>
-        
+
       </div>
 
     </div>
 
-</section>
+  </section>
 
-<section class="about">
+  <section class="about">
 
     <div class="row">
 
-    <div class="content">
+      <div class="content">
         <h3>Visión</h3>
         <p>Garantizar el suministro de agua potable y el saneamiento a las próximas generaciones, satisfacer las necesidades de nuestros clientes, tener una buena vista y ser reconocidos.</p>
-        
+
       </div>
       <div class="image">
         <img src="images/vision.png" alt="">
       </div>
 
-      
+
 
     </div>
 
-</section>
+  </section>
 
 
 

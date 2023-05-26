@@ -3,7 +3,7 @@
   <div class="container">
     <div class="sec aboutus">
       <h2>Nosotros</h2>
-      <p>La Colpa es una empresa dedicada a la producción, tratamiento y distribución de agua potable; para suplir la necesidad de agua de nuestros usuarios. </p>
+      <p>Somos una empresa dedicada a la producción, tratamiento y distribución de agua potable; para suplir la necesidad de agua de nuestros usuarios. </p>
 
       <ul class="sci">
         <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
