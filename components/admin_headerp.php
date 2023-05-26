@@ -30,7 +30,7 @@
         </a>
       </li>
       <li>
-        <a href="placed_orders.php">
+        <a href="placed_orders.php?pid=pending&completed">
           <i class="bx bxs-book-reader"></i>
           <span class="text">Ordenes</span>
         </a>

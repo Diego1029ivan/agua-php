@@ -584,3 +584,35 @@ body {
     min-width: 420px;
   }
 }
+.table-data1 {
+  padding: 24px;
+  background: var(--light);
+  border-radius: 20px;
+}
+.overflow {
+  overflow-x: auto;
+}
+.add-products {
+  padding: 24px;
+  background: var(--light);
+  border-radius: 20px;
+  margin-top: 24px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 24px;
+}
+.add-products form {
+  width: 100%;
+  /* margin: 0 auto; */
+}
+.img-pro img {
+  width: 30%;
+}
+.img-updatepro {
+  margin: 0 auto;
+  width: 30%;
+}
+.img-updatepro img {
+  width: 100%;
+  object-fit: cover;
+}

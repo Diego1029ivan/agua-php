@@ -120,7 +120,7 @@ if (!isset($admin_id)) {
             $total_pendings += $fetch_pendings['total_price'];
           }
           ?>
-          <a href="placed_orders.php?pid=pending"> <i class="bx bxs-checkbox-checked"></i></a>
+          <a href="placed_orders.php"> <i class="bx bxs-checkbox-checked"></i></a>
           <span class="text">
             <h3><?= $total_pendings; ?></h3>
             <p>Total Plata en pendientes</p>
@@ -147,7 +147,7 @@ if (!isset($admin_id)) {
           $select_orders->execute();
           $numbers_of_orders = $select_orders->rowCount();
           ?>
-          <a href="placed_orders.php?pid=pending&pid2=completed"> <i class="bx bxs-book-reader"></i></a>
+          <a href="placed_orders.php?pid=pending&completed"> <i class="bx bxs-book-reader"></i></a>
           <span class="text">
             <h3><?= $numbers_of_orders; ?></h3>
             <p>Total Ordenes</p>
