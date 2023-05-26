@@ -187,8 +187,11 @@ if (isset($_GET['delete'])) {
       ?>
       <ul class="box-info">
         <?php
-        $select_orders = $conn->prepare("SELECT * FROM `orders`");
-        $select_orders->execute();
+        $pid = $_GET['pid'];
+        $pid2 = $_GET['pid2'];
+
+        $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ? or payment_status =?");
+        $select_orders->execute([$pid, $pid2]);
         if ($select_orders->rowCount() > 0) {
           while ($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)) {
         ?>
