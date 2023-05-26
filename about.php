@@ -56,7 +56,7 @@ if (isset($_SESSION['user_id'])) {
       <div class="content">
         <h3>Por qué escogernos?</h3>
         <p>La Colpa es una empresa dedicada a la producción, tratamiento y distribución de agua potable; para suplir la necesidad de agua de nuestros usuarios. Estamos ubicado en el Jr. Independencia 643 en el Distrito de Cacatachi, provincia de San Martin, Departamento  de San Martin.</p>
-        <a href="menu.html" class="btn">nuestros productos</a>
+        <a href="menu.php" class="btn">nuestros productos</a>
       </div>
 
     </div>
@@ -150,7 +150,7 @@ if (isset($_SESSION['user_id'])) {
     <div class="row">
 
       <div class="image">
-        <img src="images/mision.jpg" alt="">
+        <img src="images/mision.png" alt="">
       </div>
 
       <div class="content">
@@ -220,6 +220,10 @@ if (isset($_SESSION['user_id'])) {
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
+      },
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: true,
       },
       breakpoints: {
         0: {
