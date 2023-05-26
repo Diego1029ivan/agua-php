@@ -47,6 +47,9 @@ if(isset($message)){
                $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
          ?>
          <p class="name"><?= $fetch_profile['name']; ?></p>
+         <div class="foto">
+            <img src="images/perfiles/<?= $fetch_profile['foto_perfil']; ?>" alt="">
+         </div>
          <div class="flex">
             <a href="profile.php" class="btn">Perfil</a>
             <a href="components/user_logout.php" onclick="return confirm('Desea salir de su cuenta?');" class="delete-btn">Salir</a>

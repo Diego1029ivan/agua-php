@@ -32,6 +32,18 @@ if(isset($_POST['submit'])){
 
 ?>
 
+<?php
+// Configura el ID de la aplicación y la URL de redirección
+// $fbAppId = '973563016980691';
+// $fbRedirectUri = 'http://localhost:8012/agua%20website%20backend/login.php';
+
+// // Genera la URL de inicio de sesión de Facebook
+// $fbLoginUrl = 'https://www.facebook.com/dialog/oauth?client_id=' . $fbAppId . '&redirect_uri=' . urlencode($fbRedirectUri) . '&scope=email';
+
+// // Crea el botón de inicio de sesión de Facebook
+// echo '<a href="' . $fbLoginUrl . '"><img src="boton_facebook.png" alt="Acceder con Facebook"></a>';
+// ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,12 +68,13 @@ if(isset($_POST['submit'])){
 <section class="form-container">
 
    <form action="" method="post">
-      <h3>login now</h3>
+      <h3>Login</h3>
       <input type="email" name="email" required placeholder="enter your email" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="pass" required placeholder="enter your password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="submit" value="login now" name="submit" class="btn">
-      <p>don't have an account? <a href="register.php">register now</a></p>
+      <p>no tiene cuenta? <a href="register.php">registrarse</a></p>
    </form>
+   <!-- <input value="Facebook" name="submit" class="btn"> -->
 
 </section>
 

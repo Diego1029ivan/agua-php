@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
    if($check_cart->rowCount() > 0){
 
       if($address == ''){
-         $message[] = 'please add your address!';
+         $message[] = 'ingrese su dirección!';
       }else{
          
          $insert_order = $conn->prepare("INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price) VALUES(?,?,?,?,?,?,?,?)");
@@ -41,11 +41,11 @@ if(isset($_POST['submit'])){
          $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
          $delete_cart->execute([$user_id]);
 
-         $message[] = 'order placed successfully!';
+         $message[] = 'orden exitosa!';
       }
       
    }else{
-      $message[] = 'your cart is empty';
+      $message[] = 'no hay nada en tu pedido';
    }
 
 }
@@ -74,18 +74,18 @@ if(isset($_POST['submit'])){
 <!-- header section ends -->
 
 <div class="heading">
-   <h3>checkout</h3>
-   <p><a href="home.php">home</a> <span> / checkout</span></p>
+   <h3>Pago</h3>
+   <p><a href="home.php">Principal</a> <span> / Pago</span></p>
 </div>
 
 <section class="checkout">
 
-   <h1 class="title">order summary</h1>
+   <h1 class="title">resumen de orden</h1>
 
 <form action="" method="post">
 
    <div class="cart-items">
-      <h3>cart items</h3>
+      <h3>detalle de pedido</h3>
       <?php
          $grand_total = 0;
          $cart_items[] = '';
@@ -104,8 +104,8 @@ if(isset($_POST['submit'])){
             echo '<p class="empty">your cart is empty!</p>';
          }
       ?>
-      <p class="grand-total"><span class="name">grand total :</span><span class="price">$<?= $grand_total; ?></span></p>
-      <a href="cart.php" class="btn">veiw cart</a>
+      <p class="grand-total"><span class="name">total :</span><span class="price">$<?= $grand_total; ?></span></p>
+      <a href="cart.php" class="btn">detalle de producto</a>
    </div>
 
    <input type="hidden" name="total_products" value="<?= $total_products; ?>">
@@ -116,19 +116,18 @@ if(isset($_POST['submit'])){
    <input type="hidden" name="address" value="<?= $fetch_profile['address'] ?>">
 
    <div class="user-info">
-      <h3>your info</h3>
+      <h3>tu información</h3>
       <p><i class="fas fa-user"></i><span><?= $fetch_profile['name'] ?></span></p>
       <p><i class="fas fa-phone"></i><span><?= $fetch_profile['number'] ?></span></p>
       <p><i class="fas fa-envelope"></i><span><?= $fetch_profile['email'] ?></span></p>
-      <a href="update_profile.php" class="btn">update info</a>
-      <h3>delivery address</h3>
+      <a href="update_profile.php" class="btn">actualizar información</a>
+      <h3>dirección de delivery</h3>
       <p><i class="fas fa-map-marker-alt"></i><span><?php if($fetch_profile['address'] == ''){echo 'please enter your address';}else{echo $fetch_profile['address'];} ?></span></p>
-      <a href="update_address.php" class="btn">update address</a>
+      <a href="update_address.php" class="btn">actualizar dirección</a>
       <select name="method" class="box" required>
-         <option value="" disabled selected>select payment method --</option>
-         <option value="cash on delivery">cash on delivery</option>
-         <option value="credit card">credit card</option>
-         <option value="paytm">paytm</option>
+         <option value="" disabled selected>seleccionar método de pago --</option>
+         <option value="cash on delivery">al contado</option>
+         <option value="credit card">tarjeta de crédito</option>
          <option value="paypal">paypal</option>
       </select>
       <input type="submit" value="place order" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="submit">
