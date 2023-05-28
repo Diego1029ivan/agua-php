@@ -15,14 +15,30 @@ if (isset($_POST['delete'])) {
   $cart_id = $_POST['cart_id'];
   $delete_cart_item = $conn->prepare("DELETE FROM `cart` WHERE id = ?");
   $delete_cart_item->execute([$cart_id]);
-  $message[] = 'cart item deleted!';
+  $message[] = "<script>
+  Swal.fire({
+      position: 'top-end',
+      icon: 'warning',
+      title: '¡El producto fue eliminado!',
+      showConfirmButton: false,
+      timer: 3500
+  });
+</script>";
 }
 
 if (isset($_POST['delete_all'])) {
   $delete_cart_item = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
   $delete_cart_item->execute([$user_id]);
   // header('location:cart.php');
-  $message[] = 'deleted all from cart!';
+  $message[] = "<script>
+  Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: '¡todos los prodctos fueron borrados!',
+      showConfirmButton: false,
+      timer: 3500
+  });
+</script>";;
 }
 
 if (isset($_POST['update_qty'])) {
@@ -31,7 +47,15 @@ if (isset($_POST['update_qty'])) {
   $qty = filter_var($qty, FILTER_SANITIZE_STRING);
   $update_qty = $conn->prepare("UPDATE `cart` SET quantity = ? WHERE id = ?");
   $update_qty->execute([$qty, $cart_id]);
-  $message[] = 'cart quantity updated';
+  $message[] = "<script>
+  Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: '¡cantidad actualizada!',
+      showConfirmButton: false,
+      timer: 3500
+  });
+</script>";
 }
 
 $grand_total = 0;
@@ -53,6 +77,13 @@ $grand_total = 0;
   <link rel="shortcut icon" href="uploaded_img/logo.png" type="image/x-icon">
   <!-- custom css file link  -->
   <link rel="stylesheet" href="css/style.css">
+    <!-- sweet alert-->
+    <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css
+" rel="stylesheet">
 
 </head>
 

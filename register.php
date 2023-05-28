@@ -30,10 +30,10 @@ if (isset($_POST['submit'])) {
   $row = $select_user->fetch(PDO::FETCH_ASSOC);
 
   if ($select_user->rowCount() > 0) {
-    $message[] = 'email or number already exists!';
+    $message[] = 'email o número ya existe!';
   } else {
     if ($pass != $cpass) {
-      $message[] = 'confirm password not matched!';
+      $message[] = 'confirmar su password, no coinciden!';
     } else {
       $insert_user = $conn->prepare("INSERT INTO `users`(name, email, number,address, password) VALUES(?,?,?,?,?)");
       $insert_user->execute([$name, $email, $number, $address, $cpass]);

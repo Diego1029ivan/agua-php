@@ -47,6 +47,7 @@
 
 </footer>
 <div class="credit">&copy; copyright @ <?= date('Y'); ?> por <span>UNSM</span> | todos los derechos reservados!</div>
+
 <div class="loader">
   <img src="images/agua2.gif" alt="">
 </div>
