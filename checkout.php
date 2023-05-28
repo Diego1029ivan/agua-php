@@ -32,7 +32,15 @@ if(isset($_POST['submit'])){
    if($check_cart->rowCount() > 0){
 
       if($address == ''){
-         $message[] = 'ingrese su dirección!';
+         $message[] = "<script>
+         Swal.fire({
+             position: 'top-end',
+             icon: 'warning',
+             title: '¡ingrese su dirección!',
+             showConfirmButton: false,
+             timer: 3500
+         });
+       </script>";
       }else{
          
          $insert_order = $conn->prepare("INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price) VALUES(?,?,?,?,?,?,?,?)");
@@ -41,7 +49,15 @@ if(isset($_POST['submit'])){
          $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
          $delete_cart->execute([$user_id]);
 
-         $message[] = 'orden exitosa!';
+         $message[] = "<script>
+         Swal.fire({
+             position: 'top-end',
+             icon: 'success',
+             title: '¡pedido exitoso!',
+             showConfirmButton: false,
+             timer: 3500
+         });
+       </script>";
       }
       
    }else{
@@ -65,7 +81,13 @@ if(isset($_POST['submit'])){
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
-
+    <!-- sweet alert-->
+    <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css
+" rel="stylesheet">
 </head>
 <body>
    
@@ -97,14 +119,14 @@ if(isset($_POST['submit'])){
                $total_products = implode($cart_items);
                $grand_total += ($fetch_cart['price'] * $fetch_cart['quantity']);
       ?>
-      <p><span class="name"><?= $fetch_cart['name']; ?></span><span class="price">$<?= $fetch_cart['price']; ?> x <?= $fetch_cart['quantity']; ?></span></p>
+      <p><span class="name"><?= $fetch_cart['name']; ?></span><span class="price">S/<?= $fetch_cart['price']; ?> x <?= $fetch_cart['quantity']; ?></span></p>
       <?php
             }
          }else{
-            echo '<p class="empty">your cart is empty!</p>';
+            echo '<p class="empty">No tienes más pedidos!</p>';
          }
       ?>
-      <p class="grand-total"><span class="name">total :</span><span class="price">$<?= $grand_total; ?></span></p>
+      <p class="grand-total"><span class="name">total :</span><span class="price">S/<?= $grand_total; ?></span></p>
       <a href="cart.php" class="btn">detalle de producto</a>
    </div>
 
@@ -130,7 +152,7 @@ if(isset($_POST['submit'])){
          <option value="credit card">tarjeta de crédito</option>
          <option value="paypal">paypal</option>
       </select>
-      <input type="submit" value="place order" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="submit">
+      <input type="submit" value="Hacer el pedido" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="submit">
    </div>
 
 </form>
