@@ -10,6 +10,12 @@ if (isset($_SESSION['user_id'])) {
   $user_id = '';
 };
 
+if (isset($_SESSION['message'])) {
+  $message[] = $_SESSION['message'];
+  unset($_SESSION['message']);
+} else {
+  $message[] = "";
+}
 include 'components/add_cart.php';
 
 ?>
@@ -32,6 +38,14 @@ include 'components/add_cart.php';
   <!-- custom css file link  -->
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- sweet alert-->
+  <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css
+" rel="stylesheet">
+
 </head>
 
 <body>
@@ -50,7 +64,7 @@ include 'components/add_cart.php';
           <div class="content">
             <span>Pide ahora</span>
             <h3>"Agua envasada, pureza en cada botella para cuidar de ti y tu familia."</h3>
-            <a href="menu.html" class="btn">ver productos</a>
+            <a href="menu.php" class="btn">ver productos</a>
           </div>
           <div class="image">
             <img src="images/slider.png" alt="">
@@ -61,7 +75,7 @@ include 'components/add_cart.php';
           <div class="content">
             <span>Pide ahora</span>
             <h3>"Agua pura, calidad asegurada para tu bienestar"</h3>
-            <a href="menu.html" class="btn">ver productos</a>
+            <a href="menu.php" class="btn">ver productos</a>
           </div>
           <div class="image">
             <img src="images/slider2.png" alt="">
@@ -72,7 +86,7 @@ include 'components/add_cart.php';
           <div class="content">
             <span>Pide ahora</span>
             <h3>"Elige salud, elige nuestras aguas envasadas sin aditivos ni conservantes."</h3>
-            <a href="menu.html" class="btn">ver productos</a>
+            <a href="menu.php" class="btn">ver productos</a>
           </div>
           <div class="image">
             <img src="images/slider3.png" alt="">
@@ -103,16 +117,7 @@ include 'components/add_cart.php';
         <h3>Bidón</h3>
       </a>
 
-      <!-- <a href="category.php?category=3" class="box">
-         <img src="images/cat-3.png" alt="">
-         <h3>--</h3>
-      </a>
-
-      <a href="category.php?category=4" class="box">
-         <img src="images/cat-4.png" alt="">
-         <h3>--</h3>
-      </a> -->
-
+      
     </div>
 
   </section>
@@ -132,6 +137,7 @@ include 'components/add_cart.php';
       $select_products->execute();
       if ($select_products->rowCount() > 0) {
         while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+          $cargando=0;
       ?>
           <form action="" method="post" class="box">
             <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
@@ -144,12 +150,13 @@ include 'components/add_cart.php';
             <a href="category.php?category=<?= $fetch_products['descripcion']; ?>" class="cat"><?= $fetch_products['descripcion']; ?></a>
             <div class="name"><?= $fetch_products['name']; ?></div>
             <div class="flex">
-              <div class="price"><span>$</span><?= $fetch_products['price']; ?></div>
+              <div class="price"><span>S/</span><?= $fetch_products['price']; ?></div>
               <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
             </div>
           </form>
       <?php
         }
+        $cargando=1;
       } else {
         echo '<p class="empty">No hay productos agregados todavía!</p>';
       }
@@ -158,7 +165,7 @@ include 'components/add_cart.php';
     </div>
 
     <div class="more-btn">
-      <a href="menu.html" class="btn">Ver todos los productos</a>
+      <a href="menu.php" class="btn">Ver todos los productos</a>
     </div>
 
   </section>

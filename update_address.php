@@ -13,7 +13,7 @@ if(isset($_SESSION['user_id'])){
 
 if(isset($_POST['submit'])){
 
-   $address = $_POST['calle'] .' '.$_POST['numero'].', '.$_POST['distrito'].', '.$_POST['provincia'] .', '. $_POST['departamento'];
+   $address = $_POST['calle'] .' '.$_POST['numero'].', '.$_POST['distrito'].', '.$_POST['referencia'] ;
    $address = filter_var($address, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
    $update_address = $conn->prepare("UPDATE `users` set address = ? WHERE id = ?");
@@ -51,8 +51,8 @@ if(isset($_POST['submit'])){
       <input type="text" class="box" placeholder="JR. Calle o Urbanización" required maxlength="50" name="calle">
       <input type="text" class="box" placeholder="Número" required maxlength="50" name="numero">
       <input type="text" class="box" placeholder="Distrito" required maxlength="50" name="distrito">
-      <input type="text" class="box" placeholder="Provincia" required maxlength="50" name="provincia">
-      <input type="text" class="box" placeholder="Departamento" required maxlength="50" name="departamento">
+      <input type="text" class="box" placeholder="Agregar referencia" required maxlength="50" name="referencia">
+      
       
       <input type="submit" value="guardar dirección" name="submit" class="btn">
    </form>

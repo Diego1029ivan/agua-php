@@ -25,13 +25,29 @@ if (isset($_POST['send'])) {
   $select_message->execute([$name, $email, $number, $msg]);
 
   if ($select_message->rowCount() > 0) {
-    $message[] = 'already sent message!';
+    $message[] = "<script>
+    Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: '¡ya se envió el mensaje!',
+        showConfirmButton: false,
+        timer: 3500
+    });
+  </script>";;
   } else {
 
     $insert_message = $conn->prepare("INSERT INTO `messages`(user_id, name, email, number, message) VALUES(?,?,?,?,?)");
     $insert_message->execute([$user_id, $name, $email, $number, $msg]);
 
-    $message[] = 'sent message successfully!';
+    $message[] = "<script>
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: '¡envío de mensaje exitoso!',
+        showConfirmButton: false,
+        timer: 3500
+    });
+  </script>";;
   }
 }
 
@@ -52,7 +68,13 @@ if (isset($_POST['send'])) {
   <link rel="shortcut icon" href="uploaded_img/logo.png" type="image/x-icon">
   <!-- custom css file link  -->
   <link rel="stylesheet" href="css/style.css">
-
+    <!-- sweet alert-->
+    <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css
+" rel="stylesheet">
 </head>
 
 <body>

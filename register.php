@@ -30,10 +30,20 @@ if (isset($_POST['submit'])) {
   $row = $select_user->fetch(PDO::FETCH_ASSOC);
 
   if ($select_user->rowCount() > 0) {
-    $message[] = 'email or number already exists!';
+    $message[] = "<script>
+    Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: '¡email ya existe coninciden!',
+        showConfirmButton: false,
+        timer: 3500
+    });
+</script>";
   } else {
     if ($pass != $cpass) {
-      $message[] = 'confirm password not matched!';
+      $message[] = '<script>
+      Swal.fire("¡No se puede!", "confirmar conicidencia de contraseñas", "warning");
+    </script>';
     } else {
       $insert_user = $conn->prepare("INSERT INTO `users`(name, email, number,address, password) VALUES(?,?,?,?,?)");
       $insert_user->execute([$name, $email, $number, $address, $cpass]);
@@ -42,6 +52,15 @@ if (isset($_POST['submit'])) {
       $row = $select_user->fetch(PDO::FETCH_ASSOC);
       if ($select_user->rowCount() > 0) {
         $_SESSION['user_id'] = $row['id'];
+        $_SESSION['message'] = "<script>
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: '¡La cuenta fue creada existosamente!',
+          showConfirmButton: false,
+          timer: 3500
+          });
+        </script>";
         header('location:home.php');
       }
     }
@@ -78,15 +97,15 @@ if (isset($_POST['submit'])) {
   <section class="form-container">
 
     <form action="" method="post">
-      <h3>register now</h3>
+      <h3>Registrarse ahora</h3>
       <input type="text" name="name" required placeholder="ingrese su nombre" class="box" maxlength="50">
       <input type="email" name="email" required placeholder="ingrese su email" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="number" name="number" required placeholder="ingrese su  number" class="box" min="0" max="9999999999" maxlength="10">
       <input type="text" name="address" required placeholder="ingrese su dirección" class="box" maxlength="50">
       <input type="password" name="pass" required placeholder="enter your password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="cpass" required placeholder="confirm your password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="submit" value="register now" name="submit" class="btn">
-      <p>already have an account? <a href="login.php">login now</a></p>
+      <input type="submit" value="Registrarme" name="submit" class="btn">
+      <p>tiene una cuenta? <a href="login.php">inrgesar ahora</a></p>
     </form>
 
   </section>

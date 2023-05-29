@@ -21,11 +21,21 @@ if(isset($_POST['add_to_cart'])){
       $check_cart_numbers->execute([$name, $user_id]);
 
       if($check_cart_numbers->rowCount() > 0){
-         $message[] = 'already added to cart!';
+         $message[] = '<script>
+         Swal.fire("¡No se puede!", "El producto ya existe", "warning");
+       </script>';
       }else{
          $insert_cart = $conn->prepare("INSERT INTO `cart`(user_id, pid, name, price, quantity, image) VALUES(?,?,?,?,?,?)");
          $insert_cart->execute([$user_id, $pid, $name, $price, $qty, $image]);
-         $message[] = 'added to cart!';
+         $message[]= "<script>
+         Swal.fire({
+             position: 'top-end',
+             icon: 'success',
+             title: '¡El producto fue registrado en el carrito de compras!',
+             showConfirmButton: false,
+             timer: 3500
+         });
+     </script>";
          
       }
 
