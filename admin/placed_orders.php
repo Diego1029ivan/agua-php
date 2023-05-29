@@ -156,10 +156,10 @@ if (isset($_GET['delete'])) {
               </li>
             </a>
             <a href="register_admin.php" class="option-btn">
-              <li>register</li>
+              <li>Registrar</li>
             </a>
             <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">
-              <li>logout</li>
+              <li>Cerrar sesion</li>
             </a>
           </ul>
         </li>
@@ -187,8 +187,8 @@ if (isset($_GET['delete'])) {
       ?>
       <ul class="box-info">
         <?php
-        $pid = $_GET['pid'];
-        $pid2 = $_GET['pid2'];
+        $pid = $_GET['pid'] ?? 'pending';
+        $pid2 = $_GET['pid2'] ?? 'completed';
 
         $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ? or payment_status =?");
         $select_orders->execute([$pid, $pid2]);
@@ -212,12 +212,12 @@ if (isset($_GET['delete'])) {
                 <input type="hidden" name="order_id" value="<?= $fetch_orders['id']; ?>">
                 <select class="butonpersonaliazul" name="payment_status" class="drop-down">
                   <option style="font-size: 16px;  padding: 15px 32px; display: inline-block;" value="" selected disabled><?= $fetch_orders['payment_status']; ?></option>
-                  <option style="font-size: 16px;  padding: 15px 32px; display: inline-block;" value="pending">pending</option>
-                  <option style="font-size: 16px;  padding: 15px 32px; display: inline-block;" value="completed">completed</option>
+                  <option style="font-size: 16px;  padding: 15px 32px; display: inline-block;" value="Pendiente">Pendiente</option>
+                  <option style="font-size: 16px;  padding: 15px 32px; display: inline-block;" value="Completado">Completado</option>
                 </select>
                 <div class="flex-btn">
-                  <input type="submit" value="update" id="buttonCard" class="butonpersonaliverde" name=" update_payment">
-                  <a href="placed_orders.php?delete=<?= $fetch_orders['id']; ?>" class="butonpersonalirojo" onclick="return confirm('delete this order?');">delete</a>
+                  <input type="submit" value="Modificar" id="buttonCard" class="butonpersonaliverde" name="update_payment">
+                  <a href="placed_orders.php?delete=<?= $fetch_orders['id']; ?>" class="butonpersonalirojo" onclick="return confirm('decea eliminar la orden?');">Eliminar</a>
                 </div>
               </form>
               </span>

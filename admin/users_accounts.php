@@ -145,14 +145,14 @@ if (isset($_GET['delete'])) {
               <li> <?= $fetch_profile['name']; ?></li>
             </a>
             <a href="admin_login.php" class="option-btn">
-              <li>login
+              <li>Login
               </li>
             </a>
             <a href="register_admin.php" class="option-btn">
-              <li>register</li>
+              <li>Registrar</li>
             </a>
             <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">
-              <li>logout</li>
+              <li>Cerrar sesion</li>
             </a>
           </ul>
         </li>
@@ -193,8 +193,8 @@ if (isset($_GET['delete'])) {
               <thead>
                 <tr>
                   <th>user id </th>
-                  <th>username </th>
-                  <th>Action</th>
+                  <th>Usuario</th>
+                  <th>Acción</th>
                 </tr>
               </thead>
               <tbody>
@@ -209,7 +209,7 @@ if (isset($_GET['delete'])) {
                     </td>
                     <td><?= $fetch_accounts['name']; ?></td>
                     <td>
-                      <a href="users_accounts.php?delete=<?= $fetch_accounts['id']; ?>" class="delete" onclick="return confirm('delete this account?');"><i class="fas fa-trash"></i></a>
+                      <a href="users_accounts.php?delete=<?= $fetch_accounts['id']; ?>" class="delete" onclick="return confirm('decea eliminar el usuario?');"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>
                 <?php
