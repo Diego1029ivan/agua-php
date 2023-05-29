@@ -13,9 +13,9 @@ if(isset($_SESSION['user_id'])){
 if(isset($_POST['submit'])){
 
    $email = $_POST['email'];
-   $email = filter_var($email, FILTER_SANITIZE_STRING);
+   $email = filter_var($email, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
    $pass = sha1($_POST['pass']);
-   $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+   $pass = filter_var($pass, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
    $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ?");
    $select_user->execute([$email, $pass]);
@@ -25,7 +25,15 @@ if(isset($_POST['submit'])){
       $_SESSION['user_id'] = $row['id'];
       header('location:home.php');
    }else{
-      $message[] = 'email o password incorrecta!';
+      $message[] = "<script>
+      Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: '¡correo o contraseña incorrecta!',
+          showConfirmButton: false,
+          timer: 3500
+            });
+      </script>";
    }
 
 }
@@ -58,6 +66,14 @@ if(isset($_POST['submit'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
+     <!-- sweet alert-->
+  <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css
+" rel="stylesheet">
+
 </head>
 <body>
    
@@ -71,8 +87,9 @@ if(isset($_POST['submit'])){
       <h3>Login</h3>
       <input type="email" name="email" required placeholder="ingrese su email" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')" autocomplete="off">
       <input type="password" name="pass" required placeholder="ingrese su password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')" autocomplete="off">
-      <input type="submit" value="login now" name="submit" class="btn">
+      <input type="submit" value="Ingresar" name="submit" class="btn">
       <p>no tiene cuenta? <a href="register.php">registrarse</a></p>
+      <p>se olvidó su contraseña? <a href="recuperar.php">recuperar contraseña</a></p>
    </form>
    <!-- <input value="Facebook" name="submit" class="btn"> -->
 

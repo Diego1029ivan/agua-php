@@ -35,7 +35,7 @@ if(isset($_POST['add_to_cart'])){
              showConfirmButton: false,
              timer: 3500
          });
-     </script>";;
+     </script>";
          
       }
 

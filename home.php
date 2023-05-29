@@ -10,6 +10,12 @@ if (isset($_SESSION['user_id'])) {
   $user_id = '';
 };
 
+if (isset($_SESSION['message'])) {
+  $message[] = $_SESSION['message'];
+  unset($_SESSION['message']);
+} else {
+  $message[] = "";
+}
 include 'components/add_cart.php';
 
 ?>
