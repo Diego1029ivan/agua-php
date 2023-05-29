@@ -80,7 +80,10 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css
 <!-- header section starts  -->
 <?php include 'components/user_header.php'; ?>
 <!-- header section ends -->
-
+<div class="fondo">
+<section class="izquierda">
+   <img src="images/login.jpg" alt="">
+</section>
 <section class="form-container">
 
    <form action="" method="post">
@@ -94,6 +97,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css
    <!-- <input value="Facebook" name="submit" class="btn"> -->
 
 </section>
+</div>
 
 
 
