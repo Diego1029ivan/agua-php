@@ -108,7 +108,7 @@ if (isset($_POST['submit'])) {
         </a>
       </li>
       <li>
-        <a href="placed_orders.php?pid=pending&pid2=completed">
+        <a href="placed_orders.php?pid=Pendiente&pid2=Completado">
           <i class="bx bxs-book-reader"></i>
           <span class="text">Ordenes</span>
         </a>

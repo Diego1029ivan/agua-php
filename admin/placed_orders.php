@@ -77,7 +77,7 @@ if (isset($_GET['delete'])) {
         </a>
       </li>
       <li class="active">
-        <a href="placed_orders.php?pid=pending&pid2=completed">
+        <a href="placed_orders.php?pid=Pendiente&pid2=Completado">
           <i class="bx bxs-book-reader"></i>
           <span class="text">Ordenes</span>
         </a>
@@ -187,8 +187,8 @@ if (isset($_GET['delete'])) {
       ?>
       <ul class="box-info">
         <?php
-        $pid = $_GET['pid'] ?? 'pending';
-        $pid2 = $_GET['pid2'] ?? 'completed';
+        $pid = $_GET['pid'] ?? 'Pendiente';
+        $pid2 = $_GET['pid2'] ?? 'Completado';
 
         $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ? or payment_status =?");
         $select_orders->execute([$pid, $pid2]);

@@ -115,12 +115,12 @@ if (!isset($admin_id)) {
           <?php
           $total_pendings = 0;
           $select_pendings = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
-          $select_pendings->execute(['pending']);
+          $select_pendings->execute(['Pendiente']);
           while ($fetch_pendings = $select_pendings->fetch(PDO::FETCH_ASSOC)) {
             $total_pendings += $fetch_pendings['total_price'];
           }
           ?>
-          <a href="placed_orders.php?pid=pending"> <i class="bx bxs-checkbox-checked"></i></a>
+          <a href="placed_orders.php?pid=Pendiente"> <i class="bx bxs-checkbox-checked"></i></a>
           <span class="text">
             <h3><?= $total_pendings; ?></h3>
             <p>Total Plata en pendientes</p>
@@ -130,12 +130,12 @@ if (!isset($admin_id)) {
           <?php
           $total_completes = 0;
           $select_completes = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
-          $select_completes->execute(['completed']);
+          $select_completes->execute(['Completado']);
           while ($fetch_completes = $select_completes->fetch(PDO::FETCH_ASSOC)) {
             $total_completes += $fetch_completes['total_price'];
           }
           ?>
-          <a href="placed_orders.php?pid=completed"><i class="bx bxs-component"></i></a>
+          <a href="placed_orders.php?pid=Completado"><i class="bx bxs-component"></i></a>
           <span class="text">
             <h3><?= $total_completes; ?></h3>
             <p>Total Plata en completado</p>
@@ -147,7 +147,7 @@ if (!isset($admin_id)) {
           $select_orders->execute();
           $numbers_of_orders = $select_orders->rowCount();
           ?>
-          <a href="placed_orders.php?pid=pending&pid2=completed"> <i class="bx bxs-book-reader"></i></a>
+          <a href="placed_orders.php?pid=Pendiente&pid2=Completado"> <i class="bx bxs-book-reader"></i></a>
           <span class="text">
             <h3><?= $numbers_of_orders; ?></h3>
             <p>Total Ordenes</p>
