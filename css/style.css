@@ -801,7 +801,21 @@ section{
 .orders .box-container .box p span{
    color:var(--black);
 }
-
+.fondo{
+   display: flex;
+   height: 80vh;
+   align-items: center;
+}
+.izquierda{
+   
+   width: 50%;
+   height: 100%;
+}
+.izquierda img{
+   width: 80%;
+   height: 100%;
+   object-fit: cover;
+}
 .form-container form{
    border:var(--border);
    margin:0 auto;
@@ -839,6 +853,10 @@ section{
 .form-container form p a:hover{
    text-decoration: underline;
 }
+/*formulario nuevo*/
+
+
+
 
 .user-details .user{
    max-width: 50rem;
