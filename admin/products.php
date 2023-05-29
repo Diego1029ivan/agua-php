@@ -105,7 +105,7 @@ if (isset($_GET['delete'])) {
       <li>
         <a href="dashboard.php">
           <i class="bx bxs-dashboard"></i>
-          <span class="text">Home</span>
+          <span class="text">Principal</span>
         </a>
       </li>
       <li class="active">
@@ -135,7 +135,7 @@ if (isset($_GET['delete'])) {
       <li>
         <a href="messages.php">
           <i class="bx bxs-message-dots"></i>
-          <span class="text">Mensages</span>
+          <span class="text">Mensajes</span>
         </a>
       </li>
     </ul>
@@ -144,7 +144,7 @@ if (isset($_GET['delete'])) {
       <li>
         <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="logout">
           <i class="bx bxs-log-out-circle"></i>
-          <span class="text">Logout</span>
+          <span class="text">Salir</span>
         </a>
       </li>
     </ul>
@@ -189,14 +189,14 @@ if (isset($_GET['delete'])) {
               <li> <?= $fetch_profile['name']; ?></li>
             </a>
             <a href="admin_login.php" class="option-btn">
-              <li>login
+              <li>Login
               </li>
             </a>
             <a href="register_admin.php" class="option-btn">
-              <li>register</li>
+              <li>Registrar</li>
             </a>
             <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">
-              <li>logout</li>
+              <li>Cerrar sesion</li>
             </a>
           </ul>
         </li>

@@ -90,7 +90,7 @@ if (isset($_POST['update'])) {
       <li>
         <a href="dashboard.php">
           <i class="bx bxs-dashboard"></i>
-          <span class="text">Home</span>
+          <span class="text">Principal</span>
         </a>
       </li>
       <li class="active">
@@ -120,7 +120,7 @@ if (isset($_POST['update'])) {
       <li>
         <a href="messages.php">
           <i class="bx bxs-message-dots"></i>
-          <span class="text">Mensages</span>
+          <span class="text">Mensajes</span>
         </a>
       </li>
     </ul>
@@ -129,7 +129,7 @@ if (isset($_POST['update'])) {
       <li>
         <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="logout">
           <i class="bx bxs-log-out-circle"></i>
-          <span class="text">Logout</span>
+          <span class="text">Salir</span>
         </a>
       </li>
     </ul>
@@ -168,14 +168,14 @@ if (isset($_POST['update'])) {
               <li> <?= $fetch_profile['name']; ?></li>
             </a>
             <a href="admin_login.php" class="option-btn">
-              <li>login
+              <li>Login
               </li>
             </a>
             <a href="register_admin.php" class="option-btn">
-              <li>register</li>
+              <li>Registrar</li>
             </a>
             <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">
-              <li>logout</li>
+              <li>Cerrar sesion</li>
             </a>
           </ul>
         </li>
@@ -202,7 +202,7 @@ if (isset($_POST['update'])) {
           }
         }
         ?>
-        <h1 class="heading text-center">update product</h1>
+        <h1 class="heading text-center">Actualizar producto</h1>
         <?php
         $update_id = $_GET['update'];
         $show_products = $conn->prepare("SELECT * FROM `products` WHERE id = ?");
@@ -221,7 +221,7 @@ if (isset($_POST['update'])) {
                 </div>
               </div>
               <div class="mb-3">
-                <label for="name" class="form-label">update name</label>
+                <label for="name" class="form-label">Nombre actualizado</label>
                 <input class="form-control" type="text" required placeholder="enter product name" aria-describedby="emailHelp" name="name" maxlength="100" class="box" value="<?= $fetch_products['name']; ?>">
               </div>
               <div class="mb-3">
@@ -231,7 +231,7 @@ if (isset($_POST['update'])) {
 
               </div>
               <div class="mb-3">
-                <label for="category" class="form-label">update category</label>
+                <label for="category" class="form-label">Categoría Actualizado</label>
                 <select name="category" class="form-select mb-2" required>
                   <option selected value="<?= $fetch_products['category']; ?>"><?= $fetch_products['category']; ?></option>
                   <?php
@@ -258,7 +258,7 @@ if (isset($_POST['update'])) {
                 </select>
               </div>
               <div class="mb-3">
-                <label for="file" class="form-label">update image</label>
+                <label for="file" class="form-label">Actualizar imagen</label>
                 <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png, image/webp">
               </div>
               <div class="flex-btn">

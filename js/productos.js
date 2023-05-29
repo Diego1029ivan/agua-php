@@ -297,7 +297,7 @@ const listUsers = async () => {
                     <td class="img-pro"> <img src="../uploaded_img/${user.image}"alt="${user.image}"/> </td>
                     <td>
                         <a  href="update_product.php?update=${user.id}"class="btn btn-sm btn-primary"><i class="fa-solid fa-pencil"></i></a>
-                        <a class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                        <a class="btn btn-sm btn-danger" href="products.php?delete=${user.id}" onclick="return confirm('decea eliminar El producto?');"><i class="fa-solid fa-trash-can"></i></button>
                     </td>
               
                 </tr>`;

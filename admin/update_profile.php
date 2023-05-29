@@ -98,7 +98,7 @@ if (isset($_POST['submit'])) {
       <li>
         <a href="dashboard.php">
           <i class="bx bxs-dashboard"></i>
-          <span class="text">Home</span>
+          <span class="text">Principal</span>
         </a>
       </li>
       <li>
@@ -128,7 +128,7 @@ if (isset($_POST['submit'])) {
       <li>
         <a href="messages.php">
           <i class="bx bxs-message-dots"></i>
-          <span class="text">Mensages</span>
+          <span class="text">Mensajes</span>
         </a>
       </li>
     </ul>
@@ -176,14 +176,14 @@ if (isset($_POST['submit'])) {
               <li> <?= $fetch_profile['name']; ?></li>
             </a>
             <a href="admin_login.php" class="option-btn">
-              <li>login
+              <li>Login
               </li>
             </a>
             <a href="register_admin.php" class="option-btn">
-              <li>register</li>
+              <li>Registrar</li>
             </a>
             <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">
-              <li>logout</li>
+              <li>Cerrar sesion</li>
             </a>
           </ul>
         </li>
@@ -210,22 +210,22 @@ if (isset($_POST['submit'])) {
         }
         ?>
         <form action="" method="POST">
-          <h3 class="heading text-center">update profile</h3>
+          <h3 class="heading text-center">Actualizar perfil</h3>
           <div class="mb-3">
             <label for="name" class="form-label">Usuario</label>
             <input class="form-control" type="text" name="name" maxlength="20" class="box" oninput="this.value = this.value.replace(/\s/g, '')" placeholder="<?= $fetch_profile['name']; ?>">
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input class="form-control" type="password" name="old_pass" maxlength="20" placeholder="enter your old password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+            <label for="password" class="form-label">Contraseña</label>
+            <input class="form-control" type="password" name="old_pass" maxlength="20" placeholder="ingrese su contraseña anterior" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Nuevo Passaword</label>
-            <input class="form-control" type="password" name="new_pass" maxlength="20" placeholder="enter your new password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+            <label for="password" class="form-label">Introduzca su nueva contraseña</label>
+            <input class="form-control" type="password" name="new_pass" maxlength="20" placeholder="Introduzca su nueva contraseña" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Confirmar Passaword</label>
-            <input class="form-control" type="password" name="confirm_pass" maxlength="20" placeholder="confirm your new password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+            <label for="password" class="form-label">Confirmar tu nueva contraseña</label>
+            <input class="form-control" type="password" name="confirm_pass" maxlength="20" placeholder="Confirmar tu nueva contraseña" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
           </div>
           <input type="submit" value="update now" name="submit" class="btn btn-primary">
         </form>

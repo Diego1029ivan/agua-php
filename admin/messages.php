@@ -55,7 +55,7 @@ if (isset($_GET['delete'])) {
       <li>
         <a href="dashboard.php">
           <i class="bx bxs-dashboard"></i>
-          <span class="text">Home</span>
+          <span class="text">Principal</span>
         </a>
       </li>
       <li>
@@ -85,7 +85,7 @@ if (isset($_GET['delete'])) {
       <li class="active">
         <a href="messages.php">
           <i class="bx bxs-message-dots"></i>
-          <span class="text">Mensages</span>
+          <span class="text">Mensajes</span>
         </a>
       </li>
     </ul>
@@ -94,7 +94,7 @@ if (isset($_GET['delete'])) {
       <li>
         <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="logout">
           <i class="bx bxs-log-out-circle"></i>
-          <span class="text">Logout</span>
+          <span class="text">Salir</span>
         </a>
       </li>
     </ul>
@@ -140,14 +140,14 @@ if (isset($_GET['delete'])) {
               <li> <?= $fetch_profile['name']; ?></li>
             </a>
             <a href="admin_login.php" class="option-btn">
-              <li>login
+              <li>Login
               </li>
             </a>
             <a href="register_admin.php" class="option-btn">
-              <li>register</li>
+              <li>Registrar</li>
             </a>
             <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">
-              <li>logout</li>
+              <li>Cerrar sesion</li>
             </a>
           </ul>
         </li>
@@ -176,7 +176,7 @@ if (isset($_GET['delete'])) {
       <div class="table-data">
         <div class="order">
           <div class="head">
-            <h3>Messages</h3>
+            <h3>Mensajes</h3>
             <i class="bx bx-search"></i>
             <i class="bx bx-filter"></i>
           </div>
@@ -188,11 +188,11 @@ if (isset($_GET['delete'])) {
             <table>
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Number </th>
-                  <th>Email</th>
-                  <th>Message</th>
-                  <th>Action</th>
+                  <th>Nombre</th>
+                  <th>Numero </th>
+                  <th>Correo</th>
+                  <th> Mensaje</th>
+                  <th>Acción</th>
                 </tr>
               </thead>
               <tbody>
