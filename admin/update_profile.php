@@ -98,7 +98,7 @@ if (isset($_POST['submit'])) {
       <li>
         <a href="dashboard.php">
           <i class="bx bxs-dashboard"></i>
-          <span class="text">Home</span>
+          <span class="text">Principal</span>
         </a>
       </li>
       <li>
@@ -128,7 +128,7 @@ if (isset($_POST['submit'])) {
       <li>
         <a href="messages.php">
           <i class="bx bxs-message-dots"></i>
-          <span class="text">Mensages</span>
+          <span class="text">Mensajes</span>
         </a>
       </li>
     </ul>

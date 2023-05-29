@@ -1,5 +1,5 @@
-correo_ agualacolpa@gmail.com
-pass_ 123colpA@
-pass correo blwlbszjvfbbunxw
+correo: agualacolpa@gmail.com
+pass: 123colpA@
+pass correo: blwlbszjvfbbunxw
 
 página importante para recuperación de cuenta

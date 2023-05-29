@@ -53,7 +53,7 @@ if (isset($_GET['delete'])) {
       <li>
         <a href="dashboard.php">
           <i class="bx bxs-dashboard"></i>
-          <span class="text">Home</span>
+          <span class="text">Principal</span>
         </a>
       </li>
       <li>
@@ -83,7 +83,7 @@ if (isset($_GET['delete'])) {
       <li>
         <a href="messages.php">
           <i class="bx bxs-message-dots"></i>
-          <span class="text">Mensages</span>
+          <span class="text">Mensajes</span>
         </a>
       </li>
     </ul>
@@ -92,7 +92,7 @@ if (isset($_GET['delete'])) {
       <li>
         <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="logout">
           <i class="bx bxs-log-out-circle"></i>
-          <span class="text">Logout</span>
+          <span class="text">Salir</span>
         </a>
       </li>
     </ul>
@@ -138,7 +138,7 @@ if (isset($_GET['delete'])) {
               <li>Registrar</li>
             </a>
             <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">
-              <li>Cerrar sesion</li>
+              <li>Salir</li>
             </a>
           </ul>
         </li>
