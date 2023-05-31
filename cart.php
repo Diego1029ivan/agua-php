@@ -44,7 +44,7 @@ if (isset($_POST['delete_all'])) {
 if (isset($_POST['update_qty'])) {
   $cart_id = $_POST['cart_id'];
   $qty = $_POST['qty'];
-  $qty = filter_var($qty, FILTER_SANITIZE_STRING);
+  $qty = filter_var($qty, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
   $update_qty = $conn->prepare("UPDATE `cart` SET quantity = ? WHERE id = ?");
   $update_qty->execute([$qty, $cart_id]);
   $message[] = "<script>
@@ -77,11 +77,11 @@ $grand_total = 0;
   <link rel="shortcut icon" href="uploaded_img/logo.png" type="image/x-icon">
   <!-- custom css file link  -->
   <link rel="stylesheet" href="css/style.css">
-    <!-- sweet alert-->
-    <script src="
+  <!-- sweet alert-->
+  <script src="
 https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js
 "></script>
-<link href="
+  <link href="
 https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css
 " rel="stylesheet">
 
@@ -120,11 +120,11 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css
             <img src="uploaded_img/<?= $fetch_cart['image']; ?>" alt="">
             <div class="name"><?= $fetch_cart['name']; ?></div>
             <div class="flex">
-              <div class="price"><span>$</span><?= $fetch_cart['price']; ?></div>
+              <div class="price"><span>S/</span><?= $fetch_cart['price']; ?></div>
               <input type="number" name="qty" class="qty" min="1" max="99" value="<?= $fetch_cart['quantity']; ?>" maxlength="2">
               <button type="submit" class="fas fa-edit" name="update_qty"></button>
             </div>
-            <div class="sub-total"> sub total : <span>$<?= $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?>/-</span> </div>
+            <div class="sub-total"> sub total : <span>S/<?= $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?>/-</span> </div>
           </form>
       <?php
           $grand_total += $sub_total;
@@ -137,7 +137,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css
     </div>
 
     <div class="cart-total">
-      <p>pedido total : <span>$<?= $grand_total; ?></span></p>
+      <p>pedido total : <span>S/<?= $grand_total; ?></span></p>
       <a href="checkout.php" class="btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>">proceder al pago</a>
     </div>
 

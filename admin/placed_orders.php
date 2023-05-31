@@ -206,7 +206,7 @@ if (isset($_GET['delete'])) {
               <p><span style="font-weight: 600;"> Número:</span><?= $fetch_orders['number']; ?></p>
               <p><span style="font-weight: 600;"> Dirección:</span><?= $fetch_orders['address']; ?></p>
               <p><span style="font-weight: 600;"> Total productos:</span> <?= $fetch_orders['total_products']; ?> </p>
-              <p><span style="font-weight: 600;">Precio total :</span>$<?= $fetch_orders['total_price']; ?> </p>
+              <p><span style="font-weight: 600;">Precio total :</span>S/ <?= $fetch_orders['total_price']; ?> </p>
               <p><span style="font-weight: 600;"> Forma de pago : </span><?= $fetch_orders['method']; ?> </p>
               <form action="" method="POST">
                 <input type="hidden" name="order_id" value="<?= $fetch_orders['id']; ?>">
