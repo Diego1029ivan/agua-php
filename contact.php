@@ -68,11 +68,11 @@ if (isset($_POST['send'])) {
   <link rel="shortcut icon" href="uploaded_img/logo.png" type="image/x-icon">
   <!-- custom css file link  -->
   <link rel="stylesheet" href="css/style.css">
-    <!-- sweet alert-->
-    <script src="
+  <!-- sweet alert-->
+  <script src="
 https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js
 "></script>
-<link href="
+  <link href="
 https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css
 " rel="stylesheet">
 </head>
@@ -95,7 +95,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css
     <div class="row">
 
       <div class="image">
-        <img src="images/contact-img.svg" alt="">
+        <img src="images/contact-img1.svg" alt="">
       </div>
 
       <form action="" method="post">
